@@ -1,10 +1,18 @@
 package Loops;
 
+import java.util.Scanner;
+
 public class Primev2 {
     public static void main(String[] args) {
         int count = 0;
         int j;
-        for (int i = 1; i <= 100; i++) {
+        Scanner pr = new Scanner(System.in);
+        System.out.print("enter the starting number :");
+        int s = pr.nextInt();
+        System.out.print("enter the ending number :");
+        int e = pr.nextInt();
+
+        for (int i = s; i <= e; i++) {
 
             if (i <= 1) {
                 continue;
@@ -34,6 +42,7 @@ public class Primev2 {
             }
 
         }
-        System.out.println(" \n " + "the number of prime numbers between 1 to 100 are =" + count);
+        System.out.println(" \n " + "the number of prime numbers between " + s + " to " + e + " are =" + count);
+        pr.close();
     }
 }
