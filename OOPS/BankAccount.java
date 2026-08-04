@@ -1,30 +1,47 @@
 package OOPS;
 
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class BankAccount {
-    int AccountNumber;
-    String AccountHolderName;
-    Double balance;
+    protected int AccountNumber;
+    protected String AccountHolderName;
+    protected Double balance;
+    protected String compiledTime;
 
     public BankAccount(int AccountNumber, String AccountHolderName, double balance) {
         this.AccountNumber = AccountNumber;
         this.AccountHolderName = AccountHolderName;
         this.balance = balance;
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        this.compiledTime = formatter.format(now);
+
     }
 
     public void deposit(double amount) {
         this.balance += amount;
+        System.out.println("****** Deposit section ******");
+        System.out.println("time and date:" + this.compiledTime);
         System.out.println("deposit of " + amount + " is successfull");
+        System.out.println("now the available balance is:" + this.balance);
 
     }
 
     public void withdrawl(double amount) {
+        System.out.println("****** withdraw section ******");
+        System.out.println("time and date:" + this.compiledTime);
+
         if (this.balance >= amount) {
             this.balance -= amount;
             System.out.println("withdrawl of " + amount + " is successfull");
-        } else
+
+        } else {
             System.err.println("invalid balance");
+        }
+        System.out.println("now the available balance is:" + this.balance);
+
     }
 
     public void transferFunds(BankAccount target, double amount) {
@@ -43,8 +60,10 @@ public class BankAccount {
     }
 
     public void displayprofile() {
-        System.out.println("\n");
+        System.out.println();
         System.out.println("******** Profile Section ********");
+        System.out.println("time and date:" + this.compiledTime);
+
         System.out.println("AccountHolderName:" + AccountHolderName);
         System.out.println("AccountNumber:" + AccountNumber);
         System.out.println("Available balance:" + balance);
@@ -60,6 +79,7 @@ public class BankAccount {
         String name = response.nextLine();
 
         BankAccount myAccount = new BankAccount(accn, name, 0.0);
+
         myAccount.displayprofile();
         int service = 0;
         while (service != 4) {
