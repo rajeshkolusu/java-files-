@@ -1,7 +1,5 @@
 package OOPS;
 
-import java.util.Scanner;
-
 public class CurrentAccount extends BankAccount {
     double overdraft;
 
@@ -23,4 +21,5 @@ public class CurrentAccount extends BankAccount {
         ca.useoverdraft(90.0);
         ca.displayprofile();
     }
+
 }
