@@ -27,5 +27,6 @@ public class CreationofArray {
         for (String num : arr2) {
             System.out.println(num);
         }
+        sc.close();
     }
 }

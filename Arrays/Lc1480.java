@@ -25,5 +25,6 @@ public class Lc1480 {
         for (int i : arr2) {
             System.out.print(" " + i);
         }
+        sc.close();
     }
 }
